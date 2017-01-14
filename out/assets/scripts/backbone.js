@@ -33,6 +33,8 @@
 
 })(function(root, Backbone, _, $) {
 
+  console.log(Backbone);
+
   // Initial Setup
   // -------------
 
