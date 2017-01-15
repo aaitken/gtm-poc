@@ -8,8 +8,8 @@ scripts: [
   '/assets/scripts/foundation.js'
   '/assets/scripts/underscore.js'
   '/assets/scripts/backbone.js'
-  '/assets/scripts/foundation-init.js'
-  '/assets/scripts/namespaces.js']
+  '/assets/scripts/namespaces.js'
+  '/assets/scripts/common.js']
 
 ---
 

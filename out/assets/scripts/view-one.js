@@ -1,10 +1,8 @@
 (function() {
   new POC.RouterOne();
 
-  window.dataLayer = [
-    {
-      viewName: 'View One'
-    }
-  ];
+  window.dataLayer.push({
+    viewName: 'View One'
+  });
 
 }).call(this);

@@ -1,10 +1,8 @@
 (function() {
   new POC.RouterTwo();
 
-  window.dataLayer = [
-    {
-      viewName: 'View Two'
-    }
-  ];
+  window.dataLayer.push({
+    viewName: 'View Two'
+  });
 
 }).call(this);
