@@ -14,21 +14,34 @@
       this.init();
     }
 
+    _Class.prototype.writePath = function(sections) {
+      var i, len, path, ssection, ssections;
+      path = '';
+      ssections = sections.split('/');
+      for (i = 0, len = ssections.length; i < len; i++) {
+        ssection = ssections[i];
+        path = path + ("/" + ssection + " ");
+      }
+      return $("#ama-view-name").html(path);
+    };
+
     _Class.prototype.one = function(sections) {
       var ssections;
-      console.log('fire');
       ssections = sections.split('/');
-      return window.dataLayer.push({
+      window.dataLayer.push({
         'event': 'virtualPageView',
-        'viewName': (function() {
-          var i, len, nameString, ssection;
-          nameString = 'Section One ';
-          for (i = 0, len = ssections.length; i < len; i++) {
-            ssection = ssections[i];
-            nameString = nameString + ("/" + ssection + " ");
-          }
-          return nameString;
-        })(),
+        'viewName': ((function(_this) {
+          return function() {
+            var i, len, ssection;
+            _this.nameString = 'Section One ';
+            for (i = 0, len = ssections.length; i < len; i++) {
+              ssection = ssections[i];
+              _this.nameString = _this.nameString + ("/" + ssection + " ");
+            }
+            console.log(_this.nameString);
+            return _this.nameString;
+          };
+        })(this))(),
         'section': 'Section One',
         'subSectionL1': ssections[0],
         'subSectionL2': ssections[1],
@@ -38,6 +51,7 @@
         'subSectionL6': ssections[5],
         'viewTitle': "/Section One /" + ssections[0] + " /[Filter Combination + Period]"
       });
+      return this.writePath(sections);
     };
 
     _Class.prototype.init = function() {
