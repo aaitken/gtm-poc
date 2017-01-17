@@ -6,10 +6,7 @@
     extend(_Class, superClass);
 
     _Class.prototype.routes = {
-      'state-one': 'one',
-      'state-two': 'two',
-      'state-three': 'three',
-      '*notFound': 'notFound'
+      '*sections': 'one'
     };
 
     function _Class() {
@@ -17,30 +14,29 @@
       this.init();
     }
 
-    _Class.prototype.one = function() {
-      $('p').removeClass().addClass('state-one');
+    _Class.prototype.one = function(sections) {
+      var ssections;
+      console.log('fire');
+      ssections = sections.split('/');
       return window.dataLayer.push({
         'event': 'virtualPageView',
-        viewName: 'View One/State One',
-        viewTitle: 'State One'
-      });
-    };
-
-    _Class.prototype.two = function() {
-      $('p').removeClass().addClass('state-two');
-      return window.dataLayer.push({
-        'event': 'virtualPageView',
-        viewName: 'View One/State Two',
-        viewTitle: 'State Two'
-      });
-    };
-
-    _Class.prototype.three = function() {
-      $('p').removeClass().addClass('state-three');
-      return window.dataLayer.push({
-        'event': 'virtualPageView',
-        viewName: 'View One/State Three',
-        viewTitle: 'State Three'
+        'viewName': (function() {
+          var i, len, nameString, ssection;
+          nameString = 'Section One ';
+          for (i = 0, len = ssections.length; i < len; i++) {
+            ssection = ssections[i];
+            nameString = nameString + ("/" + ssection + " ");
+          }
+          return nameString;
+        })(),
+        'section': 'Section One',
+        'subSectionL1': ssections[0],
+        'subSectionL2': ssections[1],
+        'subSectionL3': ssections[2],
+        'subSectionL4': ssections[3],
+        'subSectionL5': ssections[4],
+        'subSectionL6': ssections[5],
+        'viewTitle': "/Section One /" + ssections[0] + " /[Filter Combination + Period]"
       });
     };
 
