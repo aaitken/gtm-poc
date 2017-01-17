@@ -1,8 +1,8 @@
 window.dataLayer = [
   #{userType: 'Region Manager'}
-  {userType: 'Division Manager'}
+  #{userType: 'Division Manager'}
   #{userType: 'Area Manager'}
-  #{userType: 'Branch Manager'}
+  {userType: 'Branch Manager'}
   ]
   
 #-----

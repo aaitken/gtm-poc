@@ -18,15 +18,30 @@
     }
 
     _Class.prototype.one = function() {
-      return $('p').removeClass().addClass('state-one');
+      $('p').removeClass().addClass('state-one');
+      return window.dataLayer.push({
+        'event': 'virtualPageView',
+        viewName: 'View One/State One',
+        viewTitle: 'State One'
+      });
     };
 
     _Class.prototype.two = function() {
-      return $('p').removeClass().addClass('state-two');
+      $('p').removeClass().addClass('state-two');
+      return window.dataLayer.push({
+        'event': 'virtualPageView',
+        viewName: 'View One/State Two',
+        viewTitle: 'State Two'
+      });
     };
 
     _Class.prototype.three = function() {
-      return $('p').removeClass().addClass('state-three');
+      $('p').removeClass().addClass('state-three');
+      return window.dataLayer.push({
+        'event': 'virtualPageView',
+        viewName: 'View One/State Three',
+        viewTitle: 'State Three'
+      });
     };
 
     _Class.prototype.init = function() {

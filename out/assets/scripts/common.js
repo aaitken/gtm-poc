@@ -1,7 +1,7 @@
 (function() {
   window.dataLayer = [
     {
-      userType: 'Division Manager'
+      userType: 'Branch Manager'
     }
   ];
 
