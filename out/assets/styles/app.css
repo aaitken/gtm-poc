@@ -2,16 +2,16 @@
   padding: 1.5rem;
 }
 
-.state-one {
-  color: blue;
+.top-bar {
+  padding-left: 1.5rem;
 }
 
-.state-two {
-  color: red;
+.columns {
+  padding-left: 0;
 }
 
-.state-three {
-  color: green;
+.menu-text {
+  padding-left: 0;
 }
 
 .ama-user-type {
