@@ -1,2 +1,2 @@
 script ->
-  text "document.location.href = 'view-1.html'"
+  text "document.location.href = 'dashboard.html'"

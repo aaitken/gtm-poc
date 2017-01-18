@@ -23,10 +23,11 @@ html ->
   
   body ->
 
-    text @partial 'nav-bar.html'
+    text @partial 'nav-bar.html.coffee'
+    
     div class:"content", ->
       text @content
-      text @partial 'buttons.html'
+
 
     #insert script using frontend plugin
     #this picks up incrementally-named document scripts as well
