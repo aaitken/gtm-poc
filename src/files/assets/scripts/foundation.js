@@ -3196,7 +3196,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         $elem.off('click.zf.drilldown').on('click.zf.drilldown', function (e) {
           if ($(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')) {
-            e.stopImmediatePropagation();
+            //e.stopImmediatePropagation(); AMA OVERRIDE
             e.preventDefault();
           }
 

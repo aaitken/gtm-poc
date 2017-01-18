@@ -2,8 +2,7 @@
 
 layout: 'default'
 scripts1: [
-  '/assets/scripts/router-view-two.js'
-  '/assets/scripts/view-two.js']
+  '/assets/scripts/analysis.js']
 
 ---
 
@@ -24,7 +23,7 @@ div class:"row", ->
       a ".button", "Organization"
       a ".button", "Supplier"
 
-    h3 "[Filter]"
+    h3 id:"ama-filter", "[Filter]"
 
 
 
@@ -36,6 +35,7 @@ sku = 1
 div class:"row", ->
   div class:"small-3 columns",  style:"border: 1px solid #777", ->
     ul ".vertical.menu", "data-drilldown": "data-drilldown", ->
+    #ul ".vertical.menu", ->
       for shelf in shelves
         li ->
           a href: "#ama-#{shelf.toLowerCase()}", "#{shelf}"
