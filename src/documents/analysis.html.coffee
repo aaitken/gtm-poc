@@ -4,6 +4,7 @@ layout: 'default'
 scripts1: [
   '/assets/scripts/views/nav-one.js'
   '/assets/scripts/views/nav-two.js'
+  '/assets/scripts/views/nav-three.js'
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
@@ -34,11 +35,11 @@ div class:"row", ->
 
   div class:"small-3 columns", ->
 
-    div id:"#ama-nav3", class:"ama-nav3 button-group small", ->
+    div id:"ama-nav3", class:"ama-nav3 button-group small", ->
       a ".button.success", "YTD"
       a ".button", "MTD"
 
-  div class:"small-122 columns", ->
+  div class:"small-12 columns", ->
 
     hr()
 
