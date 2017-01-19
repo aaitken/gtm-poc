@@ -24,13 +24,25 @@ div class:"row", ->
       a ".button", "Margin"
       a ".button", "Margin %"
       a ".button", "Units"
+
+  div class:"small-9 columns", ->
       
     div "#ama-nav2.button-group.small", ->
       a ".button.success", "Product"
       a ".button", "Organization"
       a ".button", "Supplier"
 
-    h3 id:"ama-filter", "[Filter]"
+  div class:"small-3 columns", ->
+
+    div id:"#ama-nav3", class:"ama-nav3 button-group small", ->
+      a ".button.success", "YTD"
+      a ".button", "MTD"
+
+  div class:"small-122 columns", ->
+
+    hr()
+
+    a class:"button tiny", style:"border-radius:20px; background:#eee; color:#333;", "Placeholder Filter Pill"
 
 
 

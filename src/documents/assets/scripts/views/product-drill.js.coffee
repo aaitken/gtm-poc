@@ -5,6 +5,7 @@ class POC.views.ProductDrill extends Backbone.View
 
   el: '#ama-product-drill'
 
+  # don't think this belongs here - abstract out
   initialize: ->
     $(document).on 'drill', (e)=>
       @updateData(e)
