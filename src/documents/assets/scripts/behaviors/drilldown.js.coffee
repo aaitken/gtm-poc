@@ -4,17 +4,16 @@ class POC.behaviors.Drilldowns
     @instance ?= new this()
 
   constructor: ->
-    @$listener = $('ul.vertical.menu a')
+    @$listener = $('.ama-drill-container .menu a')
     @init()
 
   init: ->
     that = this
     @$listener.click (e)->
-      alert 'in'
       that.nextLevel = $(@).next()[0] || null
       that.$levelOptions = $(@).parent().parent().find('li:gt(0)')
       that.selection = $(@).text()
-      that.drillDown = $(e.target).parentsUntil('ul[data-drilldown]').find('a').eq(0).attr('data-id')
+      that.drillDown = $(e.target).parentsUntil('[data-id="ama-drill-container"]').find('[data-id]').eq(0).attr('data-id')
       if that.selection isnt 'Back' then that.drill(e)
       else that.undrill(e)
 
@@ -33,4 +32,3 @@ class POC.behaviors.Drilldowns
     if ! @$levelOptions.filter(':visible').length
       e.stopImmediatePropagation()
       @$levelOptions.show()
-

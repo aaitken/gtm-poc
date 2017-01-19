@@ -58,48 +58,66 @@ supplier = 1
 
 
 div class:"row", ->
-  div id:"ama-product-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
-    ul ".vertical.menu", "data-drilldown": "data-drilldown", ->
-      for shelf in shelves
-        li ->
-          a "data-id":"ama-product-drill", href:"#", "#{shelf}"
-          ul ".vertical.menu", ->
-            for group in [group..group+4]
-              li ->
-                a "data-id":"ama-product-drill", href:"#", "Group #{group}"
-                ul ".vertical.menu", ->
-                  for prod in [prod..prod+4]
-                    li ->
-                      a "data-id":"ama-product-drill", href:"#", "Product #{prod}"
-                      ul ".vertical.menu", ->
-                        for sku in [sku..sku+4]
-                          li ->
-                            a "data-id":"ama-product-drill", href: "#", "SKU #{sku}"
+  div
+    "data-id":"ama-drill-container",
+    id:"ama-product-drill",
+    class:"small-3 columns ama-drill-container ama-is-hidden", ->
+      ul
+        "data-id":"ama-product-drill",
+        class: "vertical menu",
+        "data-drilldown":"data-drilldown", ->
+          for shelf in shelves
+            li ->
+              a href:"#", "#{shelf}"
+              ul ".vertical.menu", ->
+                for group in [group..group+4]
+                  li ->
+                    a href:"#", "Group #{group}"
+                    ul ".vertical.menu", ->
+                      for prod in [prod..prod+4]
+                        li ->
+                          a href:"#", "Product #{prod}"
+                          ul ".vertical.menu", ->
+                            for sku in [sku..sku+4]
+                              li ->
+                                a href: "#", "SKU #{sku}"
 
-  div id:"ama-organization-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
-    ul ".vertical.menu", "data-drilldown": "data-drilldown", ->
-      for division in divisions
-        li ->
-          a "data-id":"ama-organization-drill", href:"#", "#{division}"
-          ul ".vertical.menu", ->
-            for branch in [branch..branch+4]
-              li ->
-                a "data-id":"ama-organization-drill", href: "#", "Branch #{branch}"
-                ul ".vertical.menu", ->
-                  for salesman in [salesman..salesman+4]
-                    li ->
-                      a "data-id":"ama-organization-drill", href:"#", "Salesman #{salesman}"
-                      ul ".vertical.menu", ->
-                        for customer in [customer..customer+4]
-                          li ->
-                            a "data-id":"ama-organization-drill", href:"#", "Customer #{customer}"
+  div
+    "data-id":"ama-drill-container",
+    id:"ama-organization-drill",
+    class:"small-3 columns ama-drill-container ama-is-hidden", ->
+      ul
+        "data-id":"ama-organization-drill",
+        class:"vertical menu",
+        "data-drilldown":"data-drilldown", ->
+          for division in divisions
+            li ->
+              a href:"#", "#{division}"
+              ul ".vertical.menu", ->
+                for branch in [branch..branch+4]
+                  li ->
+                    a href: "#", "Branch #{branch}"
+                    ul ".vertical.menu", ->
+                      for salesman in [salesman..salesman+4]
+                        li ->
+                          a href:"#", "Salesman #{salesman}"
+                          ul ".vertical.menu", ->
+                            for customer in [customer..customer+4]
+                              li ->
+                                a href:"#", "Customer #{customer}"
 
-  div id:"ama-supplier-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
-    ul ".vertical.menu", "data-drilldown": "data-drilldown", "data-animation-duration":0, ->
-      for supplier in [supplier..supplier+4]
-        li ".ama-supplier", ->
-          a "data-id":"ama-supplier-drill", href:"#", "Supplier #{supplier}"
-          ul ".vertical.menu", ->
-            li "&nbsp;"
+  div
+    "data-id":"ama-drill-container",
+    id:"ama-supplier-drill",
+    class:"small-3 columns ama-drill-container ama-is-hidden", ->
+      ul
+        "data-id":"ama-supplier-drill",
+        class:"vertical menu",
+        "data-drilldown":"data-drilldown", ->
+          for supplier in [supplier..supplier+4]
+            li ".ama-supplier", ->
+              a href:"#", "Supplier #{supplier}"
+              ul ".vertical.menu", ->
+                li "&nbsp;"
 
   div class:"columns"
