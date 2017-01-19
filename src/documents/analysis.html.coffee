@@ -5,6 +5,7 @@ scripts1: [
   '/assets/scripts/views/nav-one.js'
   '/assets/scripts/views/nav-two.js'
   '/assets/scripts/views/nav-three.js'
+  '/assets/scripts/views/nav-user.js'
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
