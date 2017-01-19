@@ -13,5 +13,13 @@ div "#example-menu.top-bar", ->
           li ->
             a href: "settings.html", "Settings"
       div ".top-bar-right", ->
-        ul ".menu", ->
-          li id:"#ama-user-type", class:".menu-text .ama-user-type"
+        ul ".dropdown.menu", "data-dropdown-menu": "data-dropdown-menu", ->
+          li ->
+            a href: "#", "Region Manager"
+            ul class:"menu", ->
+              li ->
+                a href: "#", "Division Manager"
+              li ->
+                a href: "#", "Area Manager"
+              li ->
+                a href: "#", "Branch Manager"

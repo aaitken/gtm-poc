@@ -10,6 +10,7 @@ class POC.behaviors.Drilldowns
   init: ->
     that = this
     @$listener.click (e)->
+      alert 'in'
       that.nextLevel = $(@).next()[0] || null
       that.$levelOptions = $(@).parent().parent().find('li:gt(0)')
       that.selection = $(@).text()

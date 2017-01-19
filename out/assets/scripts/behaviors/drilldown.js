@@ -13,6 +13,7 @@
       var that;
       that = this;
       return this.$listener.click(function(e) {
+        alert('in');
         that.nextLevel = $(this).next()[0] || null;
         that.$levelOptions = $(this).parent().parent().find('li:gt(0)');
         that.selection = $(this).text();
