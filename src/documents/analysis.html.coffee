@@ -7,6 +7,8 @@ scripts1: [
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
+  '/assets/scripts/data/drills.js'
+  '/assets/scripts/behaviors/drilldown.js'
   '/assets/scripts/analysis.js']
 
 ---
