@@ -27,5 +27,11 @@
 }
 
 .ama-is-hidden {
-  display: none;
+  position: absolute;
+  left: -5000px;
+}
+
+.ama-drill-container {
+  border: 1px solid #777;
+  height: 235px;
 }

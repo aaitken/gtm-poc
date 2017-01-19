@@ -21,3 +21,6 @@ $('ul.vertical.menu a').click (e)->
       $catcher.text filters[filters.length-1]
     else
       $catcher.text 'All'
+
+$(document).ready ->
+  POC.views.ProductDrill.singleton().show()

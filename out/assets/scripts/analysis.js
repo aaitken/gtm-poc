@@ -33,4 +33,8 @@
     }
   });
 
+  $(document).ready(function() {
+    return POC.views.ProductDrill.singleton().show();
+  });
+
 }).call(this);

@@ -2,8 +2,11 @@
 
 layout: 'default'
 scripts1: [
-  '/assets/scripts/views/nav1.js'
-  '/assets/scripts/views/nav2.js'
+  '/assets/scripts/views/nav-one.js'
+  '/assets/scripts/views/nav-two.js'
+  '/assets/scripts/views/product-drill.js'
+  '/assets/scripts/views/organization-drill.js'
+  '/assets/scripts/views/supplier-drill.js'
   '/assets/scripts/analysis.js']
 
 ---
@@ -40,8 +43,8 @@ customer = 1
 supplier = 1
 
 
-div id:"ama-shelf-drill", class:"row", ->
-  div class:"small-3 columns",  style:"border: 1px solid #777", ->
+div class:"row", ->
+  div id:"ama-product-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
     ul ".vertical.menu", "data-drilldown": "data-drilldown", ->
       for shelf in shelves
         li ->
@@ -59,8 +62,7 @@ div id:"ama-shelf-drill", class:"row", ->
                           li ->
                             a href: "#", "SKU #{sku}"
 
-div id:"ama-org-drill", class:"ama-is-hidden row", ->
-  div class:"small-3 columns",  style:"border: 1px solid #777", ->
+  div id:"ama-organization-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
     ul ".vertical.menu", "data-drilldown": "data-drilldown", ->
       for division in divisions
         li ->
@@ -76,13 +78,14 @@ div id:"ama-org-drill", class:"ama-is-hidden row", ->
                       ul ".vertical.menu", ->
                         for customer in [customer..customer+4]
                           li ->
-                            a href:"#", "SKU #{customer}"
+                            a href:"#", "Customer #{customer}"
 
-div id:"ama-supplier-drill", class:"ama-is-hidden row", ->
-  div class:"small-3 columns",  style:"border: 1px solid #777", ->
+  div id:"ama-supplier-drill", class:"small-3 columns ama-drill-container ama-is-hidden", ->
     ul ".vertical.menu", "data-drilldown": "data-drilldown", "data-animation-duration":0, ->
       for supplier in [supplier..supplier+4]
         li ".ama-supplier", ->
           a href:"#", "Supplier #{supplier}"
           ul ".vertical.menu", ->
             li "&nbsp;"
+
+  div class:"columns"
