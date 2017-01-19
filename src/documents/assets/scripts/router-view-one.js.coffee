@@ -25,7 +25,6 @@ POC.RouterOne = class extends Backbone.Router
         @nameString = 'Section One '
         for ssection in ssections
           @nameString = @nameString + "/#{ssection} "
-        console.log @nameString
         return @nameString)()
       'section': 'Section One'
       'subSectionL1': ssections[0]

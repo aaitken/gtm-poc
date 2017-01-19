@@ -3373,7 +3373,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         var _this = this;
         $elem.off('click.zf.drilldown');
         $elem.children('.js-drilldown-back').on('click.zf.drilldown', function (e) {
-          e.stopImmediatePropagation();
+          // e.stopImmediatePropagation(); AMA OVERRIDE
           // console.log('mouseup on back');
           _this._hide($elem);
 

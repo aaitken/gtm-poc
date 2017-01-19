@@ -15,12 +15,29 @@
 
     ProductDrill.prototype.el = '#ama-product-drill';
 
+    ProductDrill.prototype.initialize = function() {
+      $(document).on('drill', (function(_this) {
+        return function(e) {
+          return _this.updateData(e);
+        };
+      })(this));
+      return $(document).on('undrill', (function(_this) {
+        return function(e) {
+          return _this.updateData(e);
+        };
+      })(this));
+    };
+
     ProductDrill.prototype.hide = function() {
       return this.$el.addClass('ama-is-hidden');
     };
 
     ProductDrill.prototype.show = function() {
       return this.$el.removeClass('ama-is-hidden');
+    };
+
+    ProductDrill.prototype.updateData = function(e) {
+      return console.log(e);
     };
 
     return ProductDrill;

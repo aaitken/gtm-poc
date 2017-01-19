@@ -38,7 +38,6 @@
               ssection = ssections[i];
               _this.nameString = _this.nameString + ("/" + ssection + " ");
             }
-            console.log(_this.nameString);
             return _this.nameString;
           };
         })(this))(),
