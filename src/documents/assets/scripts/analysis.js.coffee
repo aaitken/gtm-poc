@@ -1,3 +1,6 @@
+POC.views.NavOne.singleton()
+POC.views.NavTwo.singleton()
+
 filters = []
 $('ul.vertical.menu a').click (e)->
   nextLevel = $(@).next()[0] || null

@@ -1,6 +1,10 @@
 (function() {
   var filters;
 
+  POC.views.NavOne.singleton();
+
+  POC.views.NavTwo.singleton();
+
   filters = [];
 
   $('ul.vertical.menu a').click(function(e) {
