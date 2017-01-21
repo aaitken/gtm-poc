@@ -3,8 +3,10 @@
 
   window.POC.views = {};
 
-  window.POC.data = {};
+  window.POC.models = {};
 
   window.POC.behaviors = {};
+
+  window.POC.utils = {};
 
 }).call(this);

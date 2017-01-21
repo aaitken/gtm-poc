@@ -27,7 +27,7 @@
 
     Drilldowns.prototype.drill = function(e) {
       $.event.trigger({
-        anchor: e.target,
+        value: $(e.target).text(),
         drillDown: this.drillDown,
         type: 'drill'
       });

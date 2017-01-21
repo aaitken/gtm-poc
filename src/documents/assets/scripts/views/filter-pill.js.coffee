@@ -3,9 +3,8 @@ class POC.views.FilterPill extends Backbone.View
   tagName: 'a'
   className: 'button tiny ama-filter-pill'
 
-  initialize: ->
-    @render()
-  
+  setText: (val)->
+    @$el.html(val)
+
   render: ->
-    @$el.html('Test')
-    $('#ama-filter-pill-container').html @el
+    $('#ama-filter-pill-container').prepend @el

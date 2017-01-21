@@ -19,7 +19,7 @@ class POC.behaviors.Drilldowns
 
   drill: (e)->
     $.event.trigger({
-      anchor: e.target
+      value: $(e.target).text()
       drillDown: @drillDown
       type: 'drill'})
     if ! @nextLevel

@@ -1,5 +1,5 @@
 (function() {
-  POC.data.Drills.singleton();
+  POC.models.Filter.singleton();
 
   POC.views.NavKPI.singleton();
 

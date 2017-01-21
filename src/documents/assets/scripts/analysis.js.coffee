@@ -1,4 +1,4 @@
-POC.data.Drills.singleton()
+POC.models.Filter.singleton()
 POC.views.NavKPI.singleton()
 POC.views.NavBreakout.singleton()
 POC.views.NavUser.singleton()

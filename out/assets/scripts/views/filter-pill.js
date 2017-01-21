@@ -13,13 +13,12 @@
 
     FilterPill.prototype.className = 'button tiny ama-filter-pill';
 
-    FilterPill.prototype.initialize = function() {
-      return this.render();
+    FilterPill.prototype.setText = function(val) {
+      return this.$el.html(val);
     };
 
     FilterPill.prototype.render = function() {
-      this.$el.html('Test');
-      return $('#ama-filter-pill-container').html(this.el);
+      return $('#ama-filter-pill-container').prepend(this.el);
     };
 
     return FilterPill;
