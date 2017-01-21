@@ -6,6 +6,7 @@ class POC.views.ProductDrill extends Backbone.View
   el: '#ama-product-drill'
   initialize: ->
     @model = POC.models.Filter.singleton()
+    @filterPlaceholder = POC.views.FilterPlaceholder.singleton()
     @FilterPill = POC.views.FilterPill
     @subscribe()
 
@@ -14,10 +15,13 @@ class POC.views.ProductDrill extends Backbone.View
       if e.drillDown is 'ama-product-drill'
         @filter(e.value)
         @pillify()
+        @filterPlaceholder.hide()
     $(document ).on 'undrill', (e)=>
       if e.drillDown is 'ama-product-drill'
         @unfilter()
         @pillify()
+        if ! $('.ama-filter-pill').length
+          @filterPlaceholder.show()
 
   hide: ->
     @$el.addClass('ama-is-hidden')
@@ -48,3 +52,4 @@ class POC.views.ProductDrill extends Backbone.View
       @filterPill = null
     else
       @filterPill.setText(pillText)
+    

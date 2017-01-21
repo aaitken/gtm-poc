@@ -17,6 +17,7 @@
 
     ProductDrill.prototype.initialize = function() {
       this.model = POC.models.Filter.singleton();
+      this.filterPlaceholder = POC.views.FilterPlaceholder.singleton();
       this.FilterPill = POC.views.FilterPill;
       return this.subscribe();
     };
@@ -26,7 +27,8 @@
         return function(e) {
           if (e.drillDown === 'ama-product-drill') {
             _this.filter(e.value);
-            return _this.pillify();
+            _this.pillify();
+            return _this.filterPlaceholder.hide();
           }
         };
       })(this));
@@ -34,7 +36,10 @@
         return function(e) {
           if (e.drillDown === 'ama-product-drill') {
             _this.unfilter();
-            return _this.pillify();
+            _this.pillify();
+            if (!$('.ama-filter-pill').length) {
+              return _this.filterPlaceholder.show();
+            }
           }
         };
       })(this));

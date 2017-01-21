@@ -8,6 +8,7 @@ scripts1: [
   '/assets/scripts/views/nav-period.js'
   '/assets/scripts/views/nav-user.js'
   '/assets/scripts/views/filter-pill.js'
+  '/assets/scripts/views/filter-placeholder.js'
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
@@ -47,7 +48,7 @@ div class:"row", ->
     hr()
 
     div id:"ama-filter-pill-container", class:"ama-filter-pill-container", ->
-      span "All Sales"
+      span id:"ama-filter-placeholder", "All Sales"
 
 
 
