@@ -6,6 +6,7 @@ scripts1: [
   '/assets/scripts/views/nav-breakout.js'
   '/assets/scripts/views/nav-period.js'
   '/assets/scripts/views/nav-user.js'
+  '/assets/scripts/views/filter-pill.js'
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
@@ -44,7 +45,9 @@ div class:"row", ->
 
     hr()
 
-    a class:"button tiny", style:"border-radius:20px; background:#eee; color:#333;", "Placeholder Filter Pill"
+    div id:"ama-filter-pill-container", class:"ama-filter-pill-container", ->
+      span "All Sales"
+
 
 
 
