@@ -19,16 +19,18 @@ class POC.behaviors.Drilldowns
 
   drill: (e)->
     $.event.trigger({
-      value: $(e.target).text()
+      val: $(e.target).text()
       drillDown: @drillDown
-      type: 'drill'})
+      kind: 'drill'
+      type: 'viewChange'})
     if ! @nextLevel
       @$levelOptions.hide()
 
   undrill: (e)->
     $.event.trigger({
       drillDown: @drillDown
-      type: 'undrill'})
+      kind: 'undrill'
+      type: 'viewChange'})
     if ! @$levelOptions.filter(':visible').length
       e.stopImmediatePropagation()
       @$levelOptions.show()

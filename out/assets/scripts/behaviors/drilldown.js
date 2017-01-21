@@ -27,9 +27,10 @@
 
     Drilldowns.prototype.drill = function(e) {
       $.event.trigger({
-        value: $(e.target).text(),
+        val: $(e.target).text(),
         drillDown: this.drillDown,
-        type: 'drill'
+        kind: 'drill',
+        type: 'viewChange'
       });
       if (!this.nextLevel) {
         return this.$levelOptions.hide();
@@ -39,7 +40,8 @@
     Drilldowns.prototype.undrill = function(e) {
       $.event.trigger({
         drillDown: this.drillDown,
-        type: 'undrill'
+        kind: 'undrill',
+        type: 'viewChange'
       });
       if (!this.$levelOptions.filter(':visible').length) {
         e.stopImmediatePropagation();

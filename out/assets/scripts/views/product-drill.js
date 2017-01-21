@@ -18,31 +18,21 @@
     ProductDrill.prototype.initialize = function() {
       this.model = POC.models.Filter.singleton();
       this.filterPlaceholder = POC.views.FilterPlaceholder.singleton();
-      this.FilterPill = POC.views.FilterPill;
-      return this.subscribe();
+      return this.FilterPill = POC.views.FilterPill;
     };
 
-    ProductDrill.prototype.subscribe = function() {
-      $(document).on('drill', (function(_this) {
-        return function(e) {
-          if (e.drillDown === 'ama-product-drill') {
-            _this.filter(e.value);
-            _this.pillify();
-            return _this.filterPlaceholder.hide();
-          }
-        };
-      })(this));
-      return $(document).on('undrill', (function(_this) {
-        return function(e) {
-          if (e.drillDown === 'ama-product-drill') {
-            _this.unfilter();
-            _this.pillify();
-            if (!$('.ama-filter-pill').length) {
-              return _this.filterPlaceholder.show();
-            }
-          }
-        };
-      })(this));
+    ProductDrill.prototype.drill = function(val) {
+      this.filter(val);
+      this.pillify();
+      return this.filterPlaceholder.hide();
+    };
+
+    ProductDrill.prototype.undrill = function() {
+      this.unfilter();
+      this.pillify();
+      if (!$('.ama-filter-pill').length) {
+        return this.filterPlaceholder.show();
+      }
     };
 
     ProductDrill.prototype.hide = function() {

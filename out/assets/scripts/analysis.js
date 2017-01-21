@@ -11,6 +11,8 @@
 
   POC.behaviors.Drilldowns.singleton();
 
+  POC.utils.Subscriber.singleton();
+
   $(document).ready(function() {
     return POC.views.ProductDrill.singleton().show();
   });

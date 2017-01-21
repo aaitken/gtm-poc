@@ -15,9 +15,18 @@
 
     NavKPI.prototype.el = '#ama-nav-kpi';
 
+    NavKPI.prototype.initialize = function() {
+      return this.val = this.$el.find('.success').text();
+    };
+
     NavKPI.prototype.events = {
       click: function(e) {
-        return this.highlight(e);
+        this.highlight(e);
+        return $.event.trigger({
+          val: this.$el.find('.success').text(),
+          kind: 'kpi',
+          type: 'viewChange'
+        });
       }
     };
 

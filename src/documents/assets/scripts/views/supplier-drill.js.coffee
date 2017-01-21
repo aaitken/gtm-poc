@@ -8,20 +8,17 @@ class POC.views.SupplierDrill extends Backbone.View
     @model = POC.models.Filter.singleton()
     @filterPlaceholder = POC.views.FilterPlaceholder.singleton()
     @FilterPill = POC.views.FilterPill
-    @subscribe()
 
-  subscribe: ->
-    $(document ).on 'drill', (e)=>
-      if e.drillDown is 'ama-supplier-drill'
-        @filter(e.value)
-        @pillify()
-        @filterPlaceholder.hide()
-    $(document ).on 'undrill', (e)=>
-      if e.drillDown is 'ama-supplier-drill'
-        @unfilter()
-        @pillify()
-        if ! $('.ama-filter-pill').length
-          @filterPlaceholder.show()
+  drill: (val)->
+    @filter(val)
+    @pillify()
+    @filterPlaceholder.hide()
+    
+  undrill: ->
+    @unfilter()
+    @pillify()
+    if ! $('.ama-filter-pill').length
+      @filterPlaceholder.show()
 
   hide: ->
     @$el.addClass('ama-is-hidden')
