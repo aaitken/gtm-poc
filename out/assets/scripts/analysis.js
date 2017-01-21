@@ -1,13 +1,13 @@
 (function() {
   POC.data.Drills.singleton();
 
-  POC.views.NavOne.singleton();
+  POC.views.NavKPI.singleton();
 
-  POC.views.NavTwo.singleton();
+  POC.views.NavBreakout.singleton();
 
   POC.views.NavUser.singleton();
 
-  POC.views.NavThree.singleton();
+  POC.views.NavPeriod.singleton();
 
   POC.behaviors.Drilldowns.singleton();
 

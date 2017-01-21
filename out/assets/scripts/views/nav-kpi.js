@@ -2,26 +2,26 @@
   var extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
 
-  POC.views.NavOne = (function(superClass) {
-    extend(NavOne, superClass);
+  POC.views.NavKPI = (function(superClass) {
+    extend(NavKPI, superClass);
 
-    function NavOne() {
-      return NavOne.__super__.constructor.apply(this, arguments);
+    function NavKPI() {
+      return NavKPI.__super__.constructor.apply(this, arguments);
     }
 
-    NavOne.singleton = function() {
+    NavKPI.singleton = function() {
       return this.instance != null ? this.instance : this.instance = new this();
     };
 
-    NavOne.prototype.el = '#ama-nav1';
+    NavKPI.prototype.el = '#ama-nav-kpi';
 
-    NavOne.prototype.events = {
+    NavKPI.prototype.events = {
       click: function(e) {
         return this.highlight(e);
       }
     };
 
-    NavOne.prototype.highlight = function(e) {
+    NavKPI.prototype.highlight = function(e) {
       var $target;
       $target = $(e.target);
       if ($target.is('a')) {
@@ -30,7 +30,7 @@
       }
     };
 
-    return NavOne;
+    return NavKPI;
 
   })(Backbone.View);
 

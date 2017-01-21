@@ -1,9 +1,9 @@
-class POC.views.NavThree extends Backbone.View
+class POC.views.NavPeriod extends Backbone.View
 
   @singleton = ->
     @instance ?= new this()
 
-  el: '#ama-nav3'
+  el: '#ama-nav-period'
 
   events:
     click: (e)->

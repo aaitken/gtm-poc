@@ -2,9 +2,9 @@
 
 layout: 'default'
 scripts1: [
-  '/assets/scripts/views/nav-one.js'
-  '/assets/scripts/views/nav-two.js'
-  '/assets/scripts/views/nav-three.js'
+  '/assets/scripts/views/nav-kpi.js'
+  '/assets/scripts/views/nav-breakout.js'
+  '/assets/scripts/views/nav-period.js'
   '/assets/scripts/views/nav-user.js'
   '/assets/scripts/views/product-drill.js'
   '/assets/scripts/views/organization-drill.js'
@@ -21,7 +21,7 @@ div class:"row", ->
 
     p "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing."
 
-    div "#ama-nav1.button-group.large", ->
+    div "#ama-nav-kpi.button-group.large", ->
       a ".button.success", "Net Sales"
       a ".button", "Margin"
       a ".button", "Margin %"
@@ -29,14 +29,14 @@ div class:"row", ->
 
   div class:"small-9 columns", ->
       
-    div "#ama-nav2.button-group.small", ->
+    div "#ama-nav-breakout.button-group.small", ->
       a ".button.success", "Product"
       a ".button", "Organization"
       a ".button", "Supplier"
 
   div class:"small-3 columns", ->
 
-    div id:"ama-nav3", class:"ama-nav3 button-group small", ->
+    div id:"ama-nav-period", class:"ama-nav3 button-group small", ->
       a ".button.success", "YTD"
       a ".button", "MTD"
 

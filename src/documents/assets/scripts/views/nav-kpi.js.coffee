@@ -1,9 +1,9 @@
-class POC.views.NavOne extends Backbone.View
+class POC.views.NavKPI extends Backbone.View
 
   @singleton = ->
     @instance ?= new this()
 
-  el: '#ama-nav1'
+  el: '#ama-nav-kpi'
 
   events:
     click: (e)->

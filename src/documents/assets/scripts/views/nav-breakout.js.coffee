@@ -1,9 +1,9 @@
-class POC.views.NavTwo extends Backbone.View
+class POC.views.NavBreakout extends Backbone.View
 
   @singleton = ->
     @instance ?= new this()
 
-  el: '#ama-nav2'
+  el: '#ama-nav-breakout'
 
   initialize: ->
     @productDrill = POC.views.ProductDrill.singleton()
