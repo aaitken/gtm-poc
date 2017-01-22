@@ -1,3 +1,4 @@
+POC.models.GoogleAnalytics.singleton()
 POC.models.Filter.singleton()
 POC.views.NavKPI.singleton()
 POC.views.NavBreakout.singleton()

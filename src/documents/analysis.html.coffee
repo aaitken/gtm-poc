@@ -13,6 +13,7 @@ scripts1: [
   '/assets/scripts/views/organization-drill.js'
   '/assets/scripts/views/supplier-drill.js'
   '/assets/scripts/models/filter.js'
+  '/assets/scripts/models/google-analytics.js'
   '/assets/scripts/behaviors/drilldown.js'
   '/assets/scripts/analysis.js']
 

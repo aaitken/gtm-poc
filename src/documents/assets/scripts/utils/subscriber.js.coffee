@@ -5,7 +5,7 @@ class POC.utils.Subscriber
   
   constructor: ->
     @modelFilter = POC.models.Filter.singleton()
-    @modelGA = POC.models.GA.singleton()
+    @modelGA = POC.models.GoogleAnalytics.singleton()
     @productDrill = POC.views.ProductDrill.singleton()
     @organizationDrill = POC.views.OrganizationDrill.singleton()
     @supplierDrill = POC.views.SupplierDrill.singleton()
@@ -19,37 +19,41 @@ class POC.utils.Subscriber
         when 'kpi' then @kpi(e)
         when 'breakout' then @breakout(e)
         when 'period' then @period(e)
+      console.log @modelGA.attributes
 
   drill: (e)->
     switch e.drillDown
       when 'ama-product-drill'
         @productDrill.drill(e.val)
-        console.log @model.getDisplayValue('product')
+        @setGAFilter('Filter 1', 'product')
       when 'ama-organization-drill'
         @organizationDrill.drill(e.val)
-        console.log @model.getDisplayValue('organization')
+        @setGAFilter('Filter 2', 'organization')
       when 'ama-supplier-drill'
         @supplierDrill.drill(e.val)
-        console.log @model.getDisplayValue('supplier')
+        @setGAFilter('Filter 3', 'supplier')
 
   undrill: (e)->
     switch e.drillDown
       when 'ama-product-drill'
         @productDrill.undrill()
-        console.log @model.getDisplayValue('product')
+        @setGAFilter('Filter 1', 'product')
       when 'ama-organization-drill'
         @organizationDrill.undrill()
-        console.log @model.getDisplayValue('organization')
+        @setGAFilter('Filter 2', 'organization')
       when 'ama-supplier-drill'
         @supplierDrill.undrill()
-        console.log @model.getDisplayValue('supplier')
+        @setGAFilter('Filter 3', 'supplier')
+
+  setGAFilter: (key, filterDimension)->
+    @modelGA.set(key, @modelFilter.getDisplayValue(filterDimension))
 
 
   kpi: (e)->
-    console.log e.val
+    @modelGA.set('Sub-Section L1', e.val)
 
   breakout: (e)->
-    console.log e.val
+    @modelGA.set('Sub-Section L2', e.val)
 
   period: (e)->
-    console.log e.val
+    @modelGA.set('Period', e.val)
