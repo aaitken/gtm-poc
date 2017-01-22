@@ -17,7 +17,12 @@
 
     NavPeriod.prototype.events = {
       click: function(e) {
-        return this.highlight(e);
+        this.highlight(e);
+        return $.event.trigger({
+          val: this.$el.find('.success').text(),
+          kind: 'period',
+          type: 'viewChange'
+        });
       }
     };
 

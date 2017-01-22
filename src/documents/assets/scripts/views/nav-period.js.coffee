@@ -8,6 +8,10 @@ class POC.views.NavPeriod extends Backbone.View
   events:
     click: (e)->
       @highlight(e)
+      $.event.trigger({
+        val: @$el.find('.success').text()
+        kind: 'period'
+        type: 'viewChange'})
 
   highlight: (e)->
     $target = $(e.target)

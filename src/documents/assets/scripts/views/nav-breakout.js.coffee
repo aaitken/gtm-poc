@@ -4,6 +4,8 @@ class POC.views.NavBreakout extends Backbone.View
     @instance ?= new this()
 
   el: '#ama-nav-breakout'
+  initialize: ->
+    @val = @$el.find('.success').text()
 
   initialize: ->
     @productDrill = POC.views.ProductDrill.singleton()
@@ -13,6 +15,10 @@ class POC.views.NavBreakout extends Backbone.View
   events:
     click: (e)->
       @highlight(e)
+      $.event.trigger({
+        val: @$el.find('.success').text()
+        kind: 'breakout'
+        type: 'viewChange'})
 
   highlight: (e)->
     @$target = $target = $(e.target)

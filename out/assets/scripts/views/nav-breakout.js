@@ -16,6 +16,10 @@
     NavBreakout.prototype.el = '#ama-nav-breakout';
 
     NavBreakout.prototype.initialize = function() {
+      return this.val = this.$el.find('.success').text();
+    };
+
+    NavBreakout.prototype.initialize = function() {
       this.productDrill = POC.views.ProductDrill.singleton();
       this.organizationDrill = POC.views.OrganizationDrill.singleton();
       return this.supplierDrill = POC.views.SupplierDrill.singleton();
@@ -23,7 +27,12 @@
 
     NavBreakout.prototype.events = {
       click: function(e) {
-        return this.highlight(e);
+        this.highlight(e);
+        return $.event.trigger({
+          val: this.$el.find('.success').text(),
+          kind: 'breakout',
+          type: 'viewChange'
+        });
       }
     };
 

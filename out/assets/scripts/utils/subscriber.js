@@ -5,7 +5,8 @@
     };
 
     function Subscriber() {
-      this.model = POC.models.Filter.singleton();
+      this.modelFilter = POC.models.Filter.singleton();
+      this.modelGA = POC.models.GA.singleton();
       this.productDrill = POC.views.ProductDrill.singleton();
       this.organizationDrill = POC.views.OrganizationDrill.singleton();
       this.supplierDrill = POC.views.SupplierDrill.singleton();
@@ -15,12 +16,17 @@
     Subscriber.prototype.listen = function() {
       return $(document).on('viewChange', (function(_this) {
         return function(e) {
-          console.log(e.val);
           switch (e.kind) {
             case 'drill':
               return _this.drill(e);
             case 'undrill':
               return _this.undrill(e);
+            case 'kpi':
+              return _this.kpi(e);
+            case 'breakout':
+              return _this.breakout(e);
+            case 'period':
+              return _this.period(e);
           }
         };
       })(this));
@@ -29,23 +35,41 @@
     Subscriber.prototype.drill = function(e) {
       switch (e.drillDown) {
         case 'ama-product-drill':
-          return this.productDrill.drill(e.val);
+          this.productDrill.drill(e.val);
+          return console.log(this.model.getDisplayValue('product'));
         case 'ama-organization-drill':
-          return this.organizationDrill.drill(e.val);
+          this.organizationDrill.drill(e.val);
+          return console.log(this.model.getDisplayValue('organization'));
         case 'ama-supplier-drill':
-          return this.supplierDrill.drill(e.val);
+          this.supplierDrill.drill(e.val);
+          return console.log(this.model.getDisplayValue('supplier'));
       }
     };
 
     Subscriber.prototype.undrill = function(e) {
       switch (e.drillDown) {
         case 'ama-product-drill':
-          return this.productDrill.undrill();
+          this.productDrill.undrill();
+          return console.log(this.model.getDisplayValue('product'));
         case 'ama-organization-drill':
-          return this.organizationDrill.undrill();
+          this.organizationDrill.undrill();
+          return console.log(this.model.getDisplayValue('organization'));
         case 'ama-supplier-drill':
-          return this.supplierDrill.undrill();
+          this.supplierDrill.undrill();
+          return console.log(this.model.getDisplayValue('supplier'));
       }
+    };
+
+    Subscriber.prototype.kpi = function(e) {
+      return console.log(e.val);
+    };
+
+    Subscriber.prototype.breakout = function(e) {
+      return console.log(e.val);
+    };
+
+    Subscriber.prototype.period = function(e) {
+      return console.log(e.val);
     };
 
     return Subscriber;
