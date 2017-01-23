@@ -19,7 +19,6 @@ class POC.utils.Subscriber
         when 'kpi' then @kpi(e)
         when 'breakout' then @breakout(e)
         when 'period' then @period(e)
-      console.log @modelGA.attributes
 
   drill: (e)->
     switch e.drillDown
@@ -47,13 +46,16 @@ class POC.utils.Subscriber
 
   setGAFilter: (key, filterDimension)->
     @modelGA.set(key, @modelFilter.getDisplayValue(filterDimension))
+    @modelGA.sendFilter()
 
 
   kpi: (e)->
     @modelGA.set('Sub-Section L1', e.val)
+    @modelGA.sendView()
 
   breakout: (e)->
     @modelGA.set('Sub-Section L2', e.val)
+    @modelGA.sendView()
 
   period: (e)->
     @modelGA.set('Period', e.val)

@@ -13,6 +13,10 @@
       return this.instance != null ? this.instance : this.instance = new this();
     };
 
+    GoogleAnalytics.prototype.initialize = function() {
+      return this.dataLayer = window.dataLayer;
+    };
+
     GoogleAnalytics.prototype.defaults = {
       'Section': 'Analysis',
       'Sub-Section L1': 'Net Sales',
@@ -23,7 +27,13 @@
       'Period': 'YTD'
     };
 
-    GoogleAnalytics.prototype.sendView = function() {};
+    GoogleAnalytics.prototype.sendView = function() {
+      return this.dataLayer.push({
+        'Section': this.get('Section'),
+        'Sub-Section L1': this.get('Sub-Section L1'),
+        'Sub-Section L2': this.get('Sub-Section L2')
+      });
+    };
 
     GoogleAnalytics.prototype.sendFilter = function() {};
 

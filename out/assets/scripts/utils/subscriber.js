@@ -18,21 +18,16 @@
         return function(e) {
           switch (e.kind) {
             case 'drill':
-              _this.drill(e);
-              break;
+              return _this.drill(e);
             case 'undrill':
-              _this.undrill(e);
-              break;
+              return _this.undrill(e);
             case 'kpi':
-              _this.kpi(e);
-              break;
+              return _this.kpi(e);
             case 'breakout':
-              _this.breakout(e);
-              break;
+              return _this.breakout(e);
             case 'period':
-              _this.period(e);
+              return _this.period(e);
           }
-          return console.log(_this.modelGA.attributes);
         };
       })(this));
     };
@@ -66,15 +61,18 @@
     };
 
     Subscriber.prototype.setGAFilter = function(key, filterDimension) {
-      return this.modelGA.set(key, this.modelFilter.getDisplayValue(filterDimension));
+      this.modelGA.set(key, this.modelFilter.getDisplayValue(filterDimension));
+      return this.modelGA.sendFilter();
     };
 
     Subscriber.prototype.kpi = function(e) {
-      return this.modelGA.set('Sub-Section L1', e.val);
+      this.modelGA.set('Sub-Section L1', e.val);
+      return this.modelGA.sendView();
     };
 
     Subscriber.prototype.breakout = function(e) {
-      return this.modelGA.set('Sub-Section L2', e.val);
+      this.modelGA.set('Sub-Section L2', e.val);
+      return this.modelGA.sendView();
     };
 
     Subscriber.prototype.period = function(e) {
