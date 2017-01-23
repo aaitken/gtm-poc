@@ -1,12 +1,16 @@
 (function() {
-  window.dataLayer = [
-    {
-      userType: 'Branch Manager'
-    }
-  ];
+  var dataLayer;
 
   $(document).foundation();
 
-  $("#ama-user-type").html(window.dataLayer[0].userType);
+  dataLayer = window.dataLayer = window.dataLayer || [];
+
+  dataLayer.push({
+    'event': 'view',
+    'User Type': 'Region Manager',
+    'Section': 'Analysis',
+    'Sub-Section L1': 'Net Sales',
+    'Sub-Section L2': 'Product'
+  });
 
 }).call(this);

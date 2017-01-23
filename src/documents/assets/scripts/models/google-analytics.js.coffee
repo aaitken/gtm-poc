@@ -17,6 +17,7 @@ class POC.models.GoogleAnalytics extends Backbone.Model
 
   sendView: ->
     @dataLayer.push {
+      'event': 'view'
       'Section': @get('Section')
       'Sub-Section L1': @get('Sub-Section L1')
       'Sub-Section L2': @get('Sub-Section L2')}

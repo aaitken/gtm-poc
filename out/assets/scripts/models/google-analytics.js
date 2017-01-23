@@ -29,6 +29,7 @@
 
     GoogleAnalytics.prototype.sendView = function() {
       return this.dataLayer.push({
+        'event': 'view',
         'Section': this.get('Section'),
         'Sub-Section L1': this.get('Sub-Section L1'),
         'Sub-Section L2': this.get('Sub-Section L2')
