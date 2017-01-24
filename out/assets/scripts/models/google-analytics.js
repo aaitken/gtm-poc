@@ -36,7 +36,15 @@
       });
     };
 
-    GoogleAnalytics.prototype.sendFilter = function() {};
+    GoogleAnalytics.prototype.sendFilter = function() {
+      return this.dataLayer.push({
+        'event': 'filter',
+        'Filter 1': this.get('Filter 1'),
+        'Filter 2': this.get('Filter 2'),
+        'Filter 3': this.get('Filter 3'),
+        'Period': this.get('Period')
+      });
+    };
 
     return GoogleAnalytics;
 

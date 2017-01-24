@@ -59,3 +59,4 @@ class POC.utils.Subscriber
 
   period: (e)->
     @modelGA.set('Period', e.val)
+    @modelGA.sendFilter()

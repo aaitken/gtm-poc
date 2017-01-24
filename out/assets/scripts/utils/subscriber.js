@@ -76,7 +76,8 @@
     };
 
     Subscriber.prototype.period = function(e) {
-      return this.modelGA.set('Period', e.val);
+      this.modelGA.set('Period', e.val);
+      return this.modelGA.sendFilter();
     };
 
     return Subscriber;
