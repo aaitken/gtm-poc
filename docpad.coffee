@@ -3,8 +3,8 @@
 
 # Define the DocPad Configuration
 docpadConfig = {
-  env: 'development'
-  #env: 'production'
+  #env: 'development'
+  env: 'production'
   
 	environments:
     production:
