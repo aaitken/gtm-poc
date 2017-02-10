@@ -6,7 +6,7 @@ docpadConfig = {
   #env: 'development'
   env: 'production'
   
-	environments:
+  environments:
     production:
       ignoreCustomPatterns: /\.sass/
 }
