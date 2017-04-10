@@ -22,10 +22,12 @@ class POC.models.GoogleAnalytics extends Backbone.Model
       'Sub-Section L1': @get('Sub-Section L1')
       'Sub-Section L2': @get('Sub-Section L2')}
 
-  sendFilter: ->
+  sendFilter: (filterEvent)->
+    console.log filterEvent
     @dataLayer.push {
-      'event': 'filter'
+      'event': filterEvent
       'Filter 1': @get('Filter 1')
       'Filter 2': @get('Filter 2')
       'Filter 3': @get('Filter 3')
       'Period': @get('Period')}
+    console.log @dataLayer

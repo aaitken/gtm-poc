@@ -10,6 +10,7 @@
       this.productDrill = POC.views.ProductDrill.singleton();
       this.organizationDrill = POC.views.OrganizationDrill.singleton();
       this.supplierDrill = POC.views.SupplierDrill.singleton();
+      this.filterEvent = null;
       this.listen();
     }
 
@@ -35,12 +36,15 @@
     Subscriber.prototype.drill = function(e) {
       switch (e.drillDown) {
         case 'ama-product-drill':
+          this.filterEvent = 'Product';
           this.productDrill.drill(e.val);
           return this.setGAFilter('Filter 1', 'product');
         case 'ama-organization-drill':
+          this.filterEvent = 'Organization';
           this.organizationDrill.drill(e.val);
           return this.setGAFilter('Filter 2', 'organization');
         case 'ama-supplier-drill':
+          this.filterEvent = 'Supplier';
           this.supplierDrill.drill(e.val);
           return this.setGAFilter('Filter 3', 'supplier');
       }
@@ -49,12 +53,15 @@
     Subscriber.prototype.undrill = function(e) {
       switch (e.drillDown) {
         case 'ama-product-drill':
+          this.filterEvent = 'Product';
           this.productDrill.undrill();
           return this.setGAFilter('Filter 1', 'product');
         case 'ama-organization-drill':
+          this.filterEvent = 'Organization';
           this.organizationDrill.undrill();
           return this.setGAFilter('Filter 2', 'organization');
         case 'ama-supplier-drill':
+          this.filterEvent = 'Supplier';
           this.supplierDrill.undrill();
           return this.setGAFilter('Filter 3', 'supplier');
       }
@@ -62,7 +69,7 @@
 
     Subscriber.prototype.setGAFilter = function(key, filterDimension) {
       this.modelGA.set(key, this.modelFilter.getDisplayValue(filterDimension));
-      return this.modelGA.sendFilter();
+      return this.modelGA.sendFilter(this.filterEvent);
     };
 
     Subscriber.prototype.kpi = function(e) {
@@ -76,8 +83,9 @@
     };
 
     Subscriber.prototype.period = function(e) {
+      this.filterEvent = 'Period';
       this.modelGA.set('Period', e.val);
-      return this.modelGA.sendFilter();
+      return this.modelGA.sendFilter(this.filterEvent);
     };
 
     return Subscriber;

@@ -9,6 +9,7 @@ class POC.utils.Subscriber
     @productDrill = POC.views.ProductDrill.singleton()
     @organizationDrill = POC.views.OrganizationDrill.singleton()
     @supplierDrill = POC.views.SupplierDrill.singleton()
+    @filterEvent = null
     @listen()
 
   listen: ->
@@ -23,30 +24,36 @@ class POC.utils.Subscriber
   drill: (e)->
     switch e.drillDown
       when 'ama-product-drill'
+        @filterEvent = 'Product'
         @productDrill.drill(e.val)
         @setGAFilter('Filter 1', 'product')
       when 'ama-organization-drill'
+        @filterEvent = 'Organization'
         @organizationDrill.drill(e.val)
         @setGAFilter('Filter 2', 'organization')
       when 'ama-supplier-drill'
+        @filterEvent = 'Supplier'
         @supplierDrill.drill(e.val)
         @setGAFilter('Filter 3', 'supplier')
 
   undrill: (e)->
     switch e.drillDown
       when 'ama-product-drill'
+        @filterEvent = 'Product'
         @productDrill.undrill()
         @setGAFilter('Filter 1', 'product')
       when 'ama-organization-drill'
+        @filterEvent = 'Organization'
         @organizationDrill.undrill()
         @setGAFilter('Filter 2', 'organization')
       when 'ama-supplier-drill'
+        @filterEvent = 'Supplier'
         @supplierDrill.undrill()
         @setGAFilter('Filter 3', 'supplier')
 
   setGAFilter: (key, filterDimension)->
     @modelGA.set(key, @modelFilter.getDisplayValue(filterDimension))
-    @modelGA.sendFilter()
+    @modelGA.sendFilter(@filterEvent)
 
 
   kpi: (e)->
@@ -58,5 +65,6 @@ class POC.utils.Subscriber
     @modelGA.sendView()
 
   period: (e)->
+    @filterEvent = 'Period'
     @modelGA.set('Period', e.val)
-    @modelGA.sendFilter()
+    @modelGA.sendFilter(@filterEvent)
