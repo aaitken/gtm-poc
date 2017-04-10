@@ -17,16 +17,41 @@
 
     NavUser.prototype.events = {
       click: function(e) {
-        return this.update(e);
+        var $target;
+        $target = $(e.target);
+        if ($target.is('a')) {
+          this.currentUser = $target.text();
+          this.setId();
+          $.event.trigger({
+            val: this.currentUser,
+            id: this.currentId,
+            type: 'userChange'
+          });
+          return this.update();
+        }
       }
     };
 
-    NavUser.prototype.update = function(e) {
-      var $target;
-      $target = $(e.target);
-      if ($target.is('a')) {
-        return this.$el.find('a').eq(0).text($target.text());
+    NavUser.prototype.setId = function() {
+      var ids;
+      switch (this.currentUser) {
+        case 'Region Manager':
+          ids = ['12222', '13333', '14444', '15555', '16666'];
+          break;
+        case 'Division Manager':
+          ids = ['22222', '23333', '24444', '25555', '26666'];
+          break;
+        case 'Area Manager':
+          ids = ['32222', '33333', '34444', '35555', '36666'];
+          break;
+        case 'Branch Manager':
+          ids = ['42222', '43333', '44444', '45555', '46666'];
       }
+      return this.currentId = ids[Math.floor(Math.random() * ids.length)];
+    };
+
+    NavUser.prototype.update = function() {
+      return this.$el.find('a').eq(0).text(this.currentUser);
     };
 
     return NavUser;

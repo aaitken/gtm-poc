@@ -7,6 +7,8 @@ class POC.models.GoogleAnalytics extends Backbone.Model
     @dataLayer = window.dataLayer
 
   defaults: {
+    'User Id': ''
+    'User Type': ''
     'Section': 'Analysis'
     'Sub-Section L1': 'Net Sales'
     'Sub-Section L2': 'Product'
@@ -23,11 +25,15 @@ class POC.models.GoogleAnalytics extends Backbone.Model
       'Sub-Section L2': @get('Sub-Section L2')}
 
   sendFilter: (filterEvent)->
-    console.log filterEvent
     @dataLayer.push {
       'event': filterEvent
       'Filter 1': @get('Filter 1')
       'Filter 2': @get('Filter 2')
       'Filter 3': @get('Filter 3')
       'Period': @get('Period')}
-    console.log @dataLayer
+
+  sendUser: ->
+    @dataLayer.push {
+      'event': 'setUser'
+      'User Id': @get('User Id')
+      'User Type': @get('User Type')}

@@ -15,7 +15,7 @@
     }
 
     Subscriber.prototype.listen = function() {
-      return $(document).on('viewChange', (function(_this) {
+      $(document).on('viewChange', (function(_this) {
         return function(e) {
           switch (e.kind) {
             case 'drill':
@@ -29,6 +29,11 @@
             case 'period':
               return _this.period(e);
           }
+        };
+      })(this));
+      return $(document).on('userChange', (function(_this) {
+        return function(e) {
+          return _this.user(e);
         };
       })(this));
     };
@@ -86,6 +91,14 @@
       this.filterEvent = 'Period';
       this.modelGA.set('Period', e.val);
       return this.modelGA.sendFilter(this.filterEvent);
+    };
+
+    Subscriber.prototype.user = function(e) {
+      this.modelGA.set('User Type', e.val);
+      this.modelGA.set({
+        'User Id': e.id
+      });
+      return this.modelGA.sendUser();
     };
 
     return Subscriber;

@@ -20,6 +20,8 @@ class POC.utils.Subscriber
         when 'kpi' then @kpi(e)
         when 'breakout' then @breakout(e)
         when 'period' then @period(e)
+    $(document).on 'userChange', (e)=>
+      @user(e)
 
   drill: (e)->
     switch e.drillDown
@@ -68,3 +70,8 @@ class POC.utils.Subscriber
     @filterEvent = 'Period'
     @modelGA.set('Period', e.val)
     @modelGA.sendFilter(@filterEvent)
+
+  user: (e)->
+    @modelGA.set('User Type', e.val)
+    @modelGA.set('User Id': e.id)
+    @modelGA.sendUser()

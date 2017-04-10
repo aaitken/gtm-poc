@@ -18,6 +18,8 @@
     };
 
     GoogleAnalytics.prototype.defaults = {
+      'User Id': '',
+      'User Type': '',
       'Section': 'Analysis',
       'Sub-Section L1': 'Net Sales',
       'Sub-Section L2': 'Product',
@@ -37,15 +39,21 @@
     };
 
     GoogleAnalytics.prototype.sendFilter = function(filterEvent) {
-      console.log(filterEvent);
-      this.dataLayer.push({
+      return this.dataLayer.push({
         'event': filterEvent,
         'Filter 1': this.get('Filter 1'),
         'Filter 2': this.get('Filter 2'),
         'Filter 3': this.get('Filter 3'),
         'Period': this.get('Period')
       });
-      return console.log(this.dataLayer);
+    };
+
+    GoogleAnalytics.prototype.sendUser = function() {
+      return this.dataLayer.push({
+        'event': 'setUser',
+        'User Id': this.get('User Id'),
+        'User Type': this.get('User Type')
+      });
     };
 
     return GoogleAnalytics;
